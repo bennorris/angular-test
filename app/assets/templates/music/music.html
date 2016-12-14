@@ -1,0 +1,13 @@
+TESTING MUSIC PAGE!
+<div ng-controller="MusicController as music" id="music-div">
+  <h1> Top Albums </h1>
+
+  <input ng-model="search"></input><button id="music-button" ng-click="searchRecord()">go</button>
+
+	<div ng-repeat="album in music.data.topalbums.album | musicRatingFilter | limitTo:3" >
+   <h2> Name: {{ album.name }} </h2>
+  <img src={{album.image[2]["#text"]}} alt=""></img>
+  <h4> Number of Plays on Last.fm: {{album.playcount.toLocaleString()}} </h4>
+  <h4><a href="{{album.url}}">Learn more</a></h4>
+</div>
+</div>

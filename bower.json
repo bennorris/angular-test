@@ -1,15 +1,26 @@
 {
-  "lib": {
-    "name": "bower-rails generated lib assets",
-    "dependencies": {
-      "angular": "latest",
-      "angular-route": "latest"
-    }
-  },
-  "vendor": {
-    "name": "bower-rails generated vendor assets",
-    "dependencies": {
-      // "three.js"    : "https://raw.github.com/mrdoob/three.js/master/build/three.js"
-    }
+  "name": "angular-test-app",
+  "homepage": "https://github.com/bennorris/angular-test",
+  "authors": [
+    "bennorris"
+  ],
+  "description": "project for learn verified",
+  "main": "app",
+  "keywords": [
+    "none"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-ui-router": "^0.3.2",
+    "angular-route": "latest"
   }
 }

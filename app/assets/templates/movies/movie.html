@@ -1,0 +1,28 @@
+<div ng-controller="MovieController as film" id="movie-div">
+  <h1>Search for a Director Below.</h1>
+  <input ng-model="searchTerm"></input><button id="go-button" ng-click="testing()">go</button>
+
+
+  <div ng-repeat="movie in film.reviews | ratingsFilter | limitTo: 3 ">
+    <div class="movie-title">
+      <h2>{{ movie.data.title }}</h2>
+    </div>
+    <div class="movie-container">
+    <div class="movie-img">
+      <img src="https://image.tmdb.org/t/p/w300{{movie.data.poster_path}}"></img>
+    </div>
+    <div class="movie-info">
+        <h3>Rating:&nbsp;&nbsp;{{ movie.data.vote_average }} / 10</h3>
+            <p>{{ movie.data.overview }}</p>
+    <p>Runtime: {{ movie.data.runtime }} minutes </p>
+    <p><a href="http://www.imdb.com/title/{{movie.data.imdb_id}}" target="_blank">IMDB link</a>
+    <p>Release Date: {{movie.data.release_date | date:'shortDate'}} </p>
+    <p>Original Title: {{movie.data.original_title}}</p>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
+  <p id="movie-foot">All data provided by The Movie Database.</p>
+</div>
