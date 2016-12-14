@@ -4,7 +4,7 @@ TESTING MUSIC PAGE!
 
   <input ng-model="search"></input><button id="music-button" ng-click="searchRecord()">go</button>
 
-	<div ng-repeat="album in music.data.topalbums.album | musicRatingFilter | limitTo:3" >
+	<div ng-repeat="album in music.data.topalbums.album | orderBy:'-playcount' | limitTo:3" >
    <h2> Name: {{ album.name }} </h2>
   <img src={{album.image[2]["#text"]}} alt=""></img>
   <h4> Number of Plays on Last.fm: {{album.playcount.toLocaleString()}} </h4>

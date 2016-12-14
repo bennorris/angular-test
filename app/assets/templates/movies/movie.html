@@ -3,7 +3,7 @@
   <input ng-model="searchTerm"></input><button id="go-button" ng-click="testing()">go</button>
 
 
-  <div ng-repeat="movie in film.reviews | ratingsFilter | limitTo: 3 ">
+  <div ng-repeat="movie in film.reviews | orderBy:'-data.vote_average'| limitTo: 3 ">
     <div class="movie-title">
       <h2>{{ movie.data.title }}</h2>
     </div>
