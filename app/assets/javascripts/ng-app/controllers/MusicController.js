@@ -4,6 +4,7 @@ function MusicController(Album, $scope) {
   $scope.items = [];
   $scope.full = [];
   $scope.style = "none";
+  var open = false;
 
 $scope.searchRecord = function () {
   $scope.items = [];
@@ -13,12 +14,24 @@ $scope.searchRecord = function () {
       ctrl.data = result.data;
       $scope.full = Album.getDetailedAlbum(result.data);
       $scope.search = '';
-      console.log($scope.full);
+    })
+    .catch(function(error) {
+      $scope.musicFail = "Sorry, we couldn't find " + $scope.search + ". Please check your spelling and search again."
+      $scope.full = [];
+      $scope.search = '';
     })
 }
 
+
 $scope.showDetails = function() {
+  if (open === false) {
   $scope.style = "inline"
+  open = !open;
+ }
+  else {
+    $scope.style = "none";
+    open = !open;
+  }
 }
 
 // $scope.getAlbumInfo = function() {

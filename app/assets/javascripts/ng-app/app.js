@@ -13,5 +13,12 @@ angular
         .when('/film', {
           templateUrl: 'movies/movie.html',
           controller: 'MovieController'
+        })
+        .when('/about', {
+          templateUrl: 'about.html'
+        })
+        .when('/lit', {
+          templateUrl: 'books/book.html',
+          controller: 'BookController'
         });
       })

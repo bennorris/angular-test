@@ -9,16 +9,16 @@ function GetDirectorId($http) {
 
 
 
-  getMovieRatings = function(movies) {
-    var ranked = [];
-    for (var i=0;i<movies.length;i++) {
-      $http.get('https://api.themoviedb.org/3/movie/' + movies[i].id + '?api_key=' + moviekey + '&language=en-US')
-      .then(function(res) {
-        ranked.push(res.data)
-      })
-    }
-    return ranked;
-  }
+  // getMovieRatings = function(movies) {
+  //   var ranked = [];
+  //   for (var i=0;i<movies.length;i++) {
+  //     $http.get('https://api.themoviedb.org/3/movie/' + movies[i].id + '?api_key=' + moviekey + '&language=en-US')
+  //     .then(function(res) {
+  //       ranked.push(res.data)
+  //     })
+  //   }
+  //   return ranked;
+  // }
 
 
 }

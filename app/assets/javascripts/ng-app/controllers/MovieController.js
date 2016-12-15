@@ -7,6 +7,7 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
 
 
  $scope.testing = function() {
+   $scope.movieFail = "";
   GetDirectorId
     .query($scope.searchTerm)
     .then(function(response) {
@@ -17,9 +18,14 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
         ctrl.films = ListDirectorFilms.createList(ctrl.data.crew);
         ctrl.reviews = GetReviews.findReview(ctrl.films);
         console.log(ctrl.reviews);
+        $scope.searchTerm = '';
         })
       })
-      $scope.searchTerm = '';
+      .catch(function(error) {
+        $scope.movieFail = "Sorry, we couldn't find " + $scope.searchTerm + ". Please check your spelling and search again."
+        $scope.searchTerm = '';
+      })
+
   }
 
 
