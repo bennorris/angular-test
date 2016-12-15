@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-image: url('../images/subtle.png');
+  background-color: gainsboro;
   width: 100%;
   height: 100%;
 }
@@ -130,4 +130,60 @@ h1 {
   background-color: lightgray;
   color: darkgreen;
   border: 3px solid darkgreen;
+}
+
+.record-title {
+  font-family: 'Bevan', cursive;
+  background-color: white;
+  width: 100%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.record-title h2 {
+  font-size: 40px;
+}
+
+.record-info {
+  font-family: 'Brawler', serif;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  min-height: 450px;
+  text-align: left;
+  overflow: auto;
+}
+
+.record-info h3 {
+  font-family: 'Brawler', serif;
+  font-size: 30px;
+
+}
+
+.record-info p {
+  font-size: 20px;
+}
+
+.record-img {
+  float: left;
+  display: inline-block;
+  width: 30%;
+}
+
+.record-info button {
+  font-family: 'Bevan', cursive;
+  background-color: darkgreen;
+  color: white;
+  font-size: 18px;
+}
+
+.record-info button:hover {
+  background-color: white;
+  color: darkgreen
+}
+
+.record-info .record-summary {
+  font-size: 15px;
 }
