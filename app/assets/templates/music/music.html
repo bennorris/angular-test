@@ -1,8 +1,8 @@
 <div ng-controller="MusicController as music" id="music-div">
-  <h1> Top Albums </h1>
+  <h1> search a musician. </h1>
 
   <input ng-model="search"></input><button id="music-button" ng-click="searchRecord()">go</button>
-
+  <h2 id="music-fail"> {{musicFail}}</h2>
 
     <div ng-repeat="record in full | orderBy:'-record.data.album.playcount'">
     <div class="record-title">
@@ -15,10 +15,11 @@
       <h4> Number of Plays on Last.fm: {{record.data.album.playcount.toLocaleString()}} </h4>
       <h4>Number of Listeners: {{record.data.album.listeners.toLocaleString()}}</h4>
       <h4><a href="{{record.data.album.url}}">View on Last.fm</a></h4>
-      <button ng-click="showDetails()">more</button><br>
-        <div style="display: {{style}}">
-          {{record.data.album.wiki.content}}
+      <!-- <button ng-click="showDetails()">more</button><br> -->
+        <div>
+          <p class="record-summary" ng-bind-html="record.data.album.wiki.content"></p>
         </div>
     </div>
 </div>
+  <p id="music-foot">All data provided by Last.fm</p>
 </div>

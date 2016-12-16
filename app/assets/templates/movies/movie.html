@@ -1,7 +1,7 @@
 <div ng-controller="MovieController as film" id="movie-div">
-  <h1>Search for a Director Below.</h1>
+  <h1>search a director.</h1>
   <input ng-model="searchTerm"></input><button id="go-button" ng-click="testing()">go</button>
-
+  <h2 id="movie-fail">{{movieFail}}</h2>
 
   <div ng-repeat="movie in film.reviews | orderBy:'-data.vote_average'| limitTo: 3 ">
     <div class="movie-title">
