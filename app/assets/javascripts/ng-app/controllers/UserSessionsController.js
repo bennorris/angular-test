@@ -1,19 +1,23 @@
 function UserSessionsController ($scope, UserService) {
 
+
+  $scope.grab = UserService.getUserId;
+
+
   $scope.FBLogin = function() {
     FB.login(function(response) {
         if (response.status === 'connected') {
-          console.log(response);
-          FB.api('/me', {fields: 'last_name'}, function(res) {
-              console.log(res);
+          FB.api('/me', {fields: 'first_name,id'}, function(res) {
+             UserService.findOrCreate(res);
           });
       } else if (response.status === 'not_authorized') {
+          console.log('not authorized');
       //logged into fb but not the app
     } else {
-      //not logged into fb, not sure if they're logged into app
+      console.log('not logged into fb');
     }
   }, {scope: 'public_profile'});
-  }
+}
 
   $scope.FBLogout = function() {
   FB.logout(function(response) {
