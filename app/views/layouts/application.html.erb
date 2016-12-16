@@ -3,28 +3,21 @@
   <head>
     <title>TopPicks</title>
     <%= csrf_meta_tags %>
-<link href="https://fonts.googleapis.com/css?family=Bevan|Brawler" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Bevan|Brawler" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+    <script src="https://use.fontawesome.com/ce1dc5ec16.js"></script>
   </head>
 
   <body ng-app="app">
-    <div id="navbar">
-    <nav>
-      <ul>
-      <li>log out</li>
-      <li>my list</li>
-      <li>about</li>
-      <li>music</li>
-      <li>film</li>
-      <li>home</li>
-    </ul>
-    </nav>
-        </div>
+    <navigate></navigate>
     <%= yield %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
 
+</script>
 
   </body>
 </html>
