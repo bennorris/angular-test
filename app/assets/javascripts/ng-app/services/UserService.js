@@ -1,4 +1,4 @@
-function UserService($http) {
+function UserService($http, $location) {
   var currentUser;
   var currentUserId;
 
@@ -10,9 +10,11 @@ function UserService($http) {
       for (var i = 0; i < res.data.length; i ++) {
           if (res.data[i].facebook == facebookInfo.id ) {
              console.log("USER EXISTS");
+             localStorage.setItem('name', facebookInfo.first_name);
              currentUser = facebookInfo.first_name;
              currentUserId = facebookInfo.id;
              found = true;
+             $location.path(`/users/${facebookInfo.id}`);
           }
         }
           if (found == false) {
@@ -33,6 +35,11 @@ function UserService($http) {
       this.getUserId = function() {
         return currentUser;
       }
+
+      this.getUserNum = function() {
+        return currentUserId;
+      }
+
 
 
 }

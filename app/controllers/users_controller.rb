@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
 
   def index
-
     respond_to do |f|
       @users = User.all
       f.json { render json: @users}
@@ -10,7 +9,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    ##create a user
+    @user = User.new
+    @user.name = params[:name]
+    @user.facebook = params[:facebook]
+    @user.save
   end
 
 

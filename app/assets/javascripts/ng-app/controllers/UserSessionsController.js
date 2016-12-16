@@ -1,8 +1,9 @@
-function UserSessionsController ($scope, UserService) {
+function UserSessionsController ($localStorage, $scope, UserService) {
 
 
+  // localStorage.username = UserService.getUserId;
   $scope.grab = UserService.getUserId;
-
+  $scope.num = UserService.getUserNum;
 
   $scope.FBLogin = function() {
     FB.login(function(response) {
@@ -17,6 +18,8 @@ function UserSessionsController ($scope, UserService) {
       console.log('not logged into fb');
     }
   }, {scope: 'public_profile'});
+
+
 }
 
   $scope.FBLogout = function() {

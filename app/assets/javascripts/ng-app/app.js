@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ngRoute', 'ngSanitize', 'templates'])
+  .module('app', ['ngRoute', 'ngSanitize', 'templates', 'ngStorage'])
   .config(function($routeProvider) {
       $routeProvider
         .when('/music',  {
@@ -17,8 +17,29 @@ angular
         .when('/about', {
           templateUrl: 'about.html'
         })
-        .when('/lit', {
-          templateUrl: 'books/book.html',
-          controller: 'BookController'
-        });
+        .when('/sign_up', {
+        templateUrl: 'users/sign_up.html',
+        controller: 'UserSessionsController'
       })
+      .when('/users/:id', {
+        templateUrl: 'users/list.html',
+        controller: 'UserListController'
+      });
+    });
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : config.FACEBOOK_KEY,
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
