@@ -1,6 +1,5 @@
 function UserService($http, $location) {
-  var currentUser;
-  var currentUserId;
+
 
 
   this.findOrCreate = function(facebookInfo) {
@@ -11,8 +10,7 @@ function UserService($http, $location) {
           if (res.data[i].facebook == facebookInfo.id ) {
              console.log("USER EXISTS");
              localStorage.setItem('name', facebookInfo.first_name);
-             currentUser = facebookInfo.first_name;
-             currentUserId = facebookInfo.id;
+             localStorage.setItem('facebook', facebookInfo.id);
              found = true;
              $location.path(`/users/${facebookInfo.id}`);
           }

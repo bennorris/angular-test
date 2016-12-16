@@ -2,8 +2,8 @@ function UserSessionsController ($localStorage, $scope, UserService) {
 
 
   // localStorage.username = UserService.getUserId;
-  $scope.grab = UserService.getUserId;
-  $scope.num = UserService.getUserNum;
+  // $scope.grab = UserService.getUserId;
+  // $scope.num = UserService.getUserNum;
 
   $scope.FBLogin = function() {
     FB.login(function(response) {
