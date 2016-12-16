@@ -29,7 +29,15 @@ nav ul li {
   margin-bottom: 1%;
   margin-top: 1%;
   padding-right: 1%;
+}
 
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li a:hover {
+  color: gold;
 }
 
 /* MOVIE */
@@ -81,6 +89,11 @@ h1 {
   font-size: 40px;
 }
 
+#movie-div h1 {
+  margin-top: 0%;
+  padding-top: 10%;
+}
+
 #go-button {
   font-family: 'Bevan', cursive;
   font-size: 25px;
@@ -127,6 +140,16 @@ h1 {
   overflow: auto;
 }
 
+#movie-fail {
+  font-family: 'Bevan', cursive;
+}
+
+#movie-foot {
+  padding-top: 10%;
+  font-family: 'Brawler', serif;
+
+}
+
 /* MUSIC */
 
 #music-div input {
@@ -154,6 +177,8 @@ h1 {
   color: darkgreen;
   border: 3px solid darkgreen;
 }
+
+
 
 .record-title {
   font-family: 'Bevan', cursive;
@@ -210,3 +235,107 @@ h1 {
 .record-info .record-summary {
   font-size: 15px;
 }
+
+#music-fail {
+  font-family: 'Bevan', cursive;
+}
+
+#music-foot {
+  padding-top: 10%;
+  font-family: 'Brawler', serif;
+}
+
+/** HOME PAGE **/
+
+.headline h1 {
+  padding-top: 10%;
+  margin-top: 0%;
+}
+
+.opening-info h2 {
+  font-family: 'Brawler', serif;
+}
+
+/* LOGIN */
+
+#FB-button {
+  width: 25%;
+  font-family: 'Bevan', cursive;
+  font-size: 27px;
+  color: white;
+  background-color: darkblue;
+}
+
+
+/****** USER LIST FIRST PAGE */
+
+#welcome-back {
+  width: 100%;
+}
+
+#welcome-back h1 {
+  margin-top: 0;
+  padding-top: 8%;
+}
+
+#music-list {
+  width: 50%;
+  min-height: 400px;
+  display: inline-block;
+  float: left;
+  background-color: black;
+  color: white;
+  font-family: 'Brawler', serif;
+  font-size: 25px;
+}
+
+#movie-list {
+  width: 50%;
+  min-height: 400px;
+  display: inline-block;
+  background-color: white;
+  color: black;
+  font-family: 'Brawler', serif;
+  font-size: 25px;
+}
+
+#movie-list i {
+  font-size: 4em;
+}
+
+
+
+#music-list i {
+  font-size: 4em;
+}
+
+
+
+#music-list-button {
+  font-family: 'Brawler', serif;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  border: none;
+  margin-top: 5%;
+}
+
+#music-list-button:hover  {
+  background-color: brown;
+  color: white;
+}
+
+#film-list-button:hover {
+  background-color: brown;
+  color: white;
+}
+
+#film-list-button {
+  font-family: 'Brawler', serif;
+  background-color: black;
+  color: white;
+  font-size: 25px;
+  border: none;
+  margin-top: 5%;
+
+ }
