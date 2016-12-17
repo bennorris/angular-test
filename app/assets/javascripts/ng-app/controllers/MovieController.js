@@ -1,19 +1,23 @@
-function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFilms, GetReviews) {
+function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFilms, GetReviews, $http) {
   var ctrl = this;
   $scope.searchTerm = '';
   ctrl.data = [];
   ctrl.films = []; //this array = list of films w id included
   ctrl.reviews = [];
+  var user = localStorage.getItem('facebook');
+  $scope.userFacebook = user;
 
 
- $scope.testing = function() {
+ $scope.findFilm = function() {
    $scope.movieFail = "";
+   ctrl.director = $scope.searchTerm;
   GetDirectorId
     .query($scope.searchTerm)
     .then(function(response) {
       DirectorCredits
        .getMovies(response.data.results[0].id)
       .then(function(res) {
+        console.log(res);
         ctrl.data = res.data;
         ctrl.films = ListDirectorFilms.createList(ctrl.data.crew);
         ctrl.reviews = GetReviews.findReview(ctrl.films);
@@ -26,6 +30,17 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
         $scope.searchTerm = '';
       })
 
+  }
+
+  $scope.addToMovieList = function(film, img) {
+    var vals = {facebook: $scope.userFacebook, artist: ctrl.director, content: film, medium: "film", img: img}
+    $http.post('/users/' + $scope.userFacebook + '/list', vals)
+    .then(function() {
+      $scope.moviePost = "Successfully added!"
+      })
+    .catch(function() {
+      $scope.moviePost =  "Sorry, it seems like there was a problem. Please try again later.";
+    })
   }
 
 

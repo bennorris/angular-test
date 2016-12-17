@@ -38,7 +38,7 @@ $scope.showDetails = function() {
 }
 
   $scope.addToList = function(name,record, img, index) {
-    var vals = {facebook: $scope.userFacebook, artist: name, content: record, type: "music", img: img}
+    var vals = {facebook: $scope.userFacebook, artist: name, content: record, medium: "music", img: img}
     $http.post('/users/' + $scope.userFacebook + '/list', vals)
     .then(function(index) {
       console.log(index);
