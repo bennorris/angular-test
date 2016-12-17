@@ -1,7 +1,5 @@
 function UserService($http, $location) {
 
-
-
   this.findOrCreate = function(facebookInfo) {
     $http.get('/api/users.json')
     .then(function(res) {
@@ -19,8 +17,15 @@ function UserService($http, $location) {
             console.log("TRYING TO MAKE USER...")
             var vals = {name: facebookInfo.first_name, facebook: facebookInfo.id };
             $http.post('/api/users', vals)
-            .then(function() {
+            .then(function(res) {
+              console.log(res)
+              var list = {facebook: facebookInfo.id};
+              $http.post('/users/lists', list)
+                .then(function() {
+                  console.log('List created!');
+                });
               console.log('User created!');
+              $location.path(`/users/${facebookInfo.id}`);
           })
             .catch(function() {
                console.log("Sorry, seems there's a problem here.")

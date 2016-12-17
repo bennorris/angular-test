@@ -1,12 +1,15 @@
-function MusicController(Album, $scope) {
+function MusicController(Album, $scope, $http) {
   var ctrl = this;
   $scope.listeners = [];
   $scope.items = [];
   $scope.full = [];
   $scope.style = "none";
   var open = false;
+  var user = localStorage.getItem('facebook');
+  $scope.userFacebook = user;
 
 $scope.searchRecord = function () {
+  $scope.afterPost = '';
   $scope.items = [];
   Album
     .getAlbum($scope.search)
@@ -34,20 +37,18 @@ $scope.showDetails = function() {
   }
 }
 
-// $scope.getAlbumInfo = function() {
-//   $scope.recordInfoz = [];
-//   var slamDunk = ctrl.data.topalbums.album;
-//   slamDunk.sort(function(a,b) {
-//     return parseFloat(b.playcount) - parseFloat(a.playcount)
-//   })
-//
-//   for (var i = 0; i < 3; i++) {
-//     Album.getDetailedAlbum(slamDunk[i].artist.name, slamDunk[i].name)
-//     .then(function(res) {
-//       $scope.description.push(res.data.album.wiki.content);
-//     })
-//   }
-// }
+  $scope.addToList = function(name,record, img, index) {
+    var vals = {facebook: $scope.userFacebook, artist: name, content: record, type: "music", img: img}
+    $http.post('/users/' + $scope.userFacebook + '/list', vals)
+    .then(function(index) {
+      console.log(index);
+      $scope.afterPost = "Successfully added!"
+      })
+    .catch(function(index) {
+      $scope.afterPost =  "Sorry, it seems like there was a problem. Please try again later.";
+    })
+  }
+
 
 
 }

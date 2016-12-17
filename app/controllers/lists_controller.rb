@@ -9,10 +9,10 @@ class ListsController < ApplicationController
 
 
   def show
-    #get current user and show list
-    @lists = Lists.all
+    @list = List.find_by(facebook: params[:id])
+
     respond_to do |f|
-      f.json {render json: @lists}
+      f.json {render json: @list}
     end
   end
 

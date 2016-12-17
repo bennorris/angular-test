@@ -1,28 +1,39 @@
 angular
-  .module('app', ['ngRoute', 'ngSanitize', 'templates', 'ngStorage'])
-  .config(function($routeProvider) {
-      $routeProvider
-        .when('/music',  {
+  .module('app', ['ui.router', 'ngSanitize', 'templates', 'ngStorage'])
+  .config(function($stateProvider) {
+      $stateProvider
+        .state('music',  {
+          url: '/music',
           templateUrl: 'music/music.html',
           controller: 'MusicController'
         })
-        .when('/', {
+        .state('home', {
+          url: '/',
           templateUrl: 'home.html',
           controller: 'HomeCtrl'
         })
-        .when('/film', {
+        .state('film', {
+          url: '/film',
           templateUrl: 'movies/movie.html',
           controller: 'MovieController'
         })
-        .when('/about', {
+        .state('about', {
+          url: '/about',
           templateUrl: 'about.html'
         })
-        .when('/sign_up', {
-        templateUrl: 'users/sign_up.html',
-        controller: 'UserSessionsController'
+        .state('signUp', {
+          url: '/sign_up',
+          templateUrl: 'users/sign_up.html',
+          controller: 'UserSessionsController'
       })
-      .when('/users/:id', {
+      .state('user', {
+        url: '/users/:id',
         templateUrl: 'users/list.html',
+        controller: 'UserListController'
+      })
+      .state('user.musiclist', {
+        url: '/music-list',
+        templateUrl: 'users/music-list.html',
         controller: 'UserListController'
       });
     });

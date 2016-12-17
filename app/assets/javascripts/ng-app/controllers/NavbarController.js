@@ -1,30 +1,43 @@
-function NavbarController($scope) {
+function NavbarController($scope, $location) {
+  var ctrl = this;
 
-  var userpath = localStorage.getItem('facebook');
-  $scope.userPath = userpath;
+  ctrl.getuser = localStorage.getItem('facebook');
+  $scope.userPath = ctrl.getuser;
+
+
+  $scope.$watch(function () {
+        return ctrl.getuser;
+    }, function (newValue, oldValue) {
+        $scope.userPath = newValue;
+    }, true);
 
   $scope.isLoggedIn = function() {
-    if (userpath != "") {
-      return "log out";
+    if ($scope.userPath != "") {
+      return "display:inline";
     } else {
-      return "";
+      return "display:none";
     }
   }
 
   $scope.isNotLoggedIn = function() {
-    if (!userpath) {
-      return "log in";
+    if ($scope.userPath == '') {
+      return "display:inline";
     } else {
-      return "";
+      return "display:none";
     }
   }
 
   $scope.hasList = function() {
-    if (userpath) {
-      return "my list";
+    if ($scope.userPath != '') {
+      return "display:inline";
     } else {
-      return "";
+      return "display:none";
     }
+  }
+
+  $scope.logMeOut = function() {
+    $scope.userPath = '';
+    $location.path(`/sign_up`);
   }
 
 

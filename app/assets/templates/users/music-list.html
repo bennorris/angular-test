@@ -1,0 +1,27 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div id="top-of-music">
+
+<h1> The {{userName}} Music List </h1>
+
+
+
+  <div class="records-to-remember">
+    <ul ng-repeat="record in listData">
+      <div class="record-img">
+        <img src="{{record.img}}" alt="">
+      </div>
+  <div class="record-info">
+      <h3> {{ record.artist}} </h3>
+      <h3> {{ record.content}} </h3>
+    <button ng-click="removeRecord()">remove</button>
+      </div>
+    </ul>
+
+  </div>
+</div>
