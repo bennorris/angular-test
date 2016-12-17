@@ -8,6 +8,8 @@ function MusicController(Album, $scope, $http) {
   var user = localStorage.getItem('facebook');
   $scope.userFacebook = user;
 
+
+
 $scope.searchRecord = function () {
   $scope.afterPost = '';
   $scope.items = [];
@@ -49,7 +51,10 @@ $scope.showDetails = function() {
     })
   }
 
-
+  $scope.orderThings = function(plays) {
+    var spins = parseInt(plays.data.album.playcount)
+    return spins;
+  }
 
 }
 

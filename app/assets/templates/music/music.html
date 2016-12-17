@@ -4,7 +4,8 @@
   <input ng-model="search"></input><button id="music-button" ng-click="searchRecord()">go</button>
   <h2 id="music-fail"> {{musicFail}}</h2>
 
-    <div ng-repeat="record in full | orderBy:'-record.data.album.playcount' track by $index">
+    <div ng-repeat="record in full | orderBy: orderThings : true">
+
     <div class="record-title">
         <h2> {{record.data.album.name}} </h2>
     </div>
@@ -12,8 +13,8 @@
       <img src={{record.data.album.image[3]["#text"]}} alt=""></img>
     </div>
     <div class="record-info">
-      <h4> Number of Plays on Last.fm: {{record.data.album.playcount.toLocaleString()}} </h4>
-      <h4>Number of Listeners: {{record.data.album.listeners.toLocaleString()}}</h4>
+      <h4> Number of Plays on Last.fm: {{ record.data.album.playcount | Playcount }} </h4>
+      <h4>Number of Listeners: {{ record.data.album.listeners | Playcount }}</h4>
       <h4><a href="{{record.data.album.url}}">View on Last.fm</a></h4>
         <div>
           <p class="record-summary" ng-bind-html="record.data.album.wiki.content"></p>
