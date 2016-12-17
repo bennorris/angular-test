@@ -35,7 +35,13 @@ angular
         url: '/music-list',
         templateUrl: 'users/music-list.html',
         controller: 'UserListController'
-      });
+      })
+      .state('user.movielist', {
+        url: '/movie-list',
+        templateUrl: 'users/movie-list.html',
+        controller: 'UserListController'
+      })
+
     });
 
     window.fbAsyncInit = function() {
