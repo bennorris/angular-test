@@ -7,12 +7,14 @@ class ItemsController < ApplicationController
     @item.content = params[:content]
     @item.artist = params[:artist]
     @item.img = params[:img]
+    @item.medium = params[:medium]
     @item.save
   end
 
   def delete
-    binding.pry 
-
+    @list = List.find_by(facebook: params[:facebook])
+    @item = @list.items.select {|i| i.artist == params[:artist] && i.content == params[:album] }
+    Item.delete(@item)
   end
 
 end
