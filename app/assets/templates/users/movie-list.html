@@ -1,0 +1,20 @@
+<div id="top-of-movies">
+
+<h1> The {{userName}} Movie List </h1>
+
+
+
+  <div class="records-to-remember">
+    <ul ng-repeat="film in listData">
+      <div class="record-img">
+        <img src="https://image.tmdb.org/t/p/w185{{film.img}}"></img>
+      </div>
+  <div class="record-info smaller-list-info">
+      <h3> {{ film.artist}} </h3>
+      <h3> {{ film.content}} </h3>
+    <button ng-click="removeRecord(film.artist, film.content, 'film')">remove</button>
+      </div>
+    </ul>
+
+  </div>
+</div>

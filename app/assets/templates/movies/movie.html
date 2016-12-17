@@ -1,6 +1,6 @@
 <div ng-controller="MovieController as film" id="movie-div">
   <h1>search a director.</h1>
-  <input ng-model="searchTerm"></input><button id="go-button" ng-click="testing()">go</button>
+  <input ng-model="searchTerm"></input><button id="go-button" ng-click="findFilm()">go</button>
   <h2 id="movie-fail">{{movieFail}}</h2>
 
   <div ng-repeat="movie in film.reviews | orderBy:'-data.vote_average'| limitTo: 3 ">
@@ -18,7 +18,10 @@
     <p><a href="http://www.imdb.com/title/{{movie.data.imdb_id}}" target="_blank">IMDB link</a>
     <p>Release Date: {{movie.data.release_date | date:'shortDate'}} </p>
     <p>Original Title: {{movie.data.original_title}}</p>
+  <button class="add-movie" ng-click="addToMovieList(movie.data.title, movie.data.poster_path)">add to list</button>
+    <h3>{{ moviePost }}</h3>
       </div>
+
   </div>
   <br>
   <br>

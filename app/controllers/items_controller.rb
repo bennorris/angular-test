@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def delete
     @list = List.find_by(facebook: params[:facebook])
-    @item = @list.items.select {|i| i.artist == params[:artist] && i.content == params[:album] }
+    @item = @list.items.select {|i| i.artist == params[:artist] && i.content == params[:content] }
     Item.delete(@item)
   end
 

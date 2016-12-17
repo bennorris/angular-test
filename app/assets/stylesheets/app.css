@@ -344,3 +344,14 @@ h1 {
    color: darkgreen;
    font-family: 'Brawler', serif;
  }
+
+ .add-movie {
+   font-family: 'Bevan', cursive;
+   color: white;
+   background-color: darkgreen;
+   font-size: 20px;
+ }
+
+ .smaller-list-info {
+   min-height: 320px;
+}

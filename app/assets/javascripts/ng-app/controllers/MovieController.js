@@ -17,11 +17,9 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
       DirectorCredits
        .getMovies(response.data.results[0].id)
       .then(function(res) {
-        console.log(res);
         ctrl.data = res.data;
         ctrl.films = ListDirectorFilms.createList(ctrl.data.crew);
         ctrl.reviews = GetReviews.findReview(ctrl.films);
-        console.log(ctrl.reviews);
         $scope.searchTerm = '';
         })
       })
