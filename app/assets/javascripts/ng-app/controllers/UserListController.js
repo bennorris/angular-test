@@ -8,18 +8,47 @@ function UserListController($localStorage, $scope, $location, $anchorScroll, $ht
   $scope.scrollToMusic = function () {
     $http.get(`/users/${fbId}/list.json`)
       .then(function(res) {
-        console.log(res);
-        $scope.listData = res.data.items
-      })
+        var matches = []
+        for (var i = 0; i < res.data.items.length; i++) {
+          if (res.data.items[i].medium == "music") {
+            matches.push(res.data.items[i])
+        }
+      }
+       $scope.listData = matches;
+    })
     $location.path(`/users/${fbId}/music-list`);
     $location.hash('top-of-music');
     $anchorScroll();
 }
 
-$scope.removeRecord = function() {
-  console.log("I AM TRYING TO DELETE.")
-  // var vals = {artist: artist, album: album}
-  // $http.post('users/' + user + '/delete', vals)
+$scope.scrollToMovies = function () {
+  $http.get(`/users/${fbId}/list.json`)
+    .then(function(res) {
+      var matches = []
+      for (var i = 0; i < res.data.items.length; i++) {
+        if (res.data.items[i].medium == "film") {
+          matches.push(res.data.items[i])
+      }
+    }
+     $scope.listData = matches;
+  })
+  $location.path(`/users/${fbId}/movie-list`);
+  $location.hash('top-of-movies');
+  $anchorScroll();
+}
+
+$scope.removeRecord = function(artist, album) {
+  var vals = {artist: artist, album: album, facebook: fbId};
+  $http.post('users/' + user + '/delete', vals)
+  .then(function(res) {
+    $http.get(`/users/${fbId}/list.json`)
+      .then(function(res){
+        $scope.listData = res.data.items;
+      })
+  })
+  .catch(function(error) {
+    console.log(error)
+  })
 }
 
 
