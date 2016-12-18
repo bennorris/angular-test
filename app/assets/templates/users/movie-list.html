@@ -5,7 +5,8 @@
 
 
   <div class="records-to-remember">
-    <ul ng-repeat="film in listData">
+    <input type="text" class="music-searchbox" placeholder="search through your list" ng-model="searchMovies"></input>
+    <ul ng-repeat="film in listData | filter:searchMovies">
       <div class="record-img">
         <img src="https://image.tmdb.org/t/p/w185{{film.img}}"></img>
       </div>

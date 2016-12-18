@@ -12,7 +12,9 @@
 
 
   <div class="records-to-remember">
-    <ul ng-repeat="record in listData">
+    <input type="text" class="music-searchbox" placeholder="search through your list" ng-model="searchMusic"></input>
+    <ul ng-repeat="record in listData | filter:searchMusic">
+
       <div class="record-img">
         <img src="{{record.img}}" alt="">
       </div>
