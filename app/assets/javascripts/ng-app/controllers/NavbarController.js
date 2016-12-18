@@ -2,19 +2,7 @@ function NavbarController($scope, $location, $localStorage) {
   var ctrl = this;
 
   $scope.getuser = localStorage.getItem('facebook');
-
-
-  // $scope.$watch('getuser', function(newVal, oldVal) {
-  //   console.log("This is the new val " + newVal + " and this is the old: " + oldVal)
-  // })
-
-  $scope.$watch(function () {
-      return $localStorage.facebook;
-  }, function (newVal, oldVal) {
-      console.log("new = " +newVal+" old= " + oldVal);
-  })
-
-
+  $scope.userPath = $localStorage.facebook;
 
   $scope.isLoggedIn = function() {
     if ($localStorage.facebook != "") {
