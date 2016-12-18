@@ -1,4 +1,4 @@
-function UserService($http, $location) {
+function UserService($http, $location, $localStorage) {
 
   this.findOrCreate = function(facebookInfo) {
     $http.get('/api/users.json')
@@ -6,9 +6,10 @@ function UserService($http, $location) {
       var found = false;
       for (var i = 0; i < res.data.length; i ++) {
           if (res.data[i].facebook == facebookInfo.id ) {
-             console.log("USER EXISTS");
-             localStorage.setItem('name', facebookInfo.first_name);
-             localStorage.setItem('facebook', facebookInfo.id);
+            //  localStorage.setItem('name', facebookInfo.first_name);
+            //  localStorage.setItem('facebook', facebookInfo.id);
+             $localStorage.facebook = facebookInfo.id;
+             $localStorage.name = facebookInfo.first_name;
              found = true;
              $location.path(`/users/${facebookInfo.id}`);
           }

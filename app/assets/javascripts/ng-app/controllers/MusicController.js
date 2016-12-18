@@ -7,6 +7,7 @@ function MusicController(Album, $scope, $http) {
   var open = false;
   var user = localStorage.getItem('facebook');
   $scope.userFacebook = user;
+  $scope.searchMusic = '';
 
 
 

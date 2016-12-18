@@ -1,12 +1,14 @@
 function UserListController($localStorage, $scope, $location, $anchorScroll, $http, SortMedia) {
 
-  var user = localStorage.getItem('name');
-  var fbId = localStorage.getItem('facebook')
+  var user = $localStorage.name;
+  var fbId = $localStorage.facebook;
   $scope.userName = user;
   $scope.listData;
 
   $scope.scrollToMusic = function () {
     $scope.listData = SortMedia.getAndSort("music");
+    console.log($scope.listData);
+    console.log(fbId);
     $location.path(`/users/${fbId}/music-list`);
     $location.hash('top-of-music');
     $anchorScroll();

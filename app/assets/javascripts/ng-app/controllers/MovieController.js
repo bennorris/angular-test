@@ -6,7 +6,7 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
   ctrl.reviews = [];
   var user = localStorage.getItem('facebook');
   $scope.userFacebook = user;
-
+  $scope.searchMovies = '';
 
  $scope.findFilm = function() {
    $scope.movieFail = "";

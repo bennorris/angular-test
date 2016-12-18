@@ -266,6 +266,11 @@ h1 {
   background-color: darkblue;
 }
 
+#FB-button:hover {
+  color: gold;
+
+}
+
 
 /****** USER LIST FIRST PAGE */
 
@@ -354,4 +359,47 @@ h1 {
 
  .smaller-list-info {
    min-height: 320px;
+}
+
+.music-searchbox {
+  font-family: 'Brawler', serif;
+  font-size: 25px;
+  margin-bottom: 3%;
+}
+
+
+#the-welcome h1 {
+  margin-top: 0%;
+  padding-top: 10%;
+}
+
+#the-welcome h2 {
+  font-family: 'Brawler', serif;
+}
+
+#the-welcome a {
+  font-family: 'Bevan', cursive;
+  text-decoration: none;
+  color: darkgreen;
+  font-size: 20px;
+}
+
+#the-welcome a:hover {
+  color: black;
+}
+
+.opening-info a {
+  font-family: 'Bevan', cursive;
+  text-decoration: none;
+  color: darkgreen;
+  font-size: 20px;
+}
+
+.opening-info a:hover {
+  color: black;
+}
+
+.about {
+  font-family: 'Brawler', serif;
+  color: darkgreen;
 }
