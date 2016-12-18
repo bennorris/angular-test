@@ -1,18 +1,23 @@
-function NavbarController($scope, $location) {
+function NavbarController($scope, $location, $localStorage) {
   var ctrl = this;
 
-  ctrl.getuser = localStorage.getItem('facebook');
-  $scope.userPath = ctrl.getuser;
+  $scope.getuser = localStorage.getItem('facebook');
 
+
+  // $scope.$watch('getuser', function(newVal, oldVal) {
+  //   console.log("This is the new val " + newVal + " and this is the old: " + oldVal)
+  // })
 
   $scope.$watch(function () {
-        return ctrl.getuser;
-    }, function (newValue, oldValue) {
-        $scope.userPath = newValue;
-    }, true);
+      return $localStorage.facebook;
+  }, function (newVal, oldVal) {
+      console.log("new = " +newVal+" old= " + oldVal);
+  })
+
+
 
   $scope.isLoggedIn = function() {
-    if ($scope.userPath != "") {
+    if ($localStorage.facebook != "") {
       return "display:inline";
     } else {
       return "display:none";
@@ -20,7 +25,7 @@ function NavbarController($scope, $location) {
   }
 
   $scope.isNotLoggedIn = function() {
-    if ($scope.userPath == '') {
+    if ($localStorage.facebook == '') {
       return "display:inline";
     } else {
       return "display:none";
@@ -28,7 +33,7 @@ function NavbarController($scope, $location) {
   }
 
   $scope.hasList = function() {
-    if ($scope.userPath != '') {
+    if ($localStorage.facebook != '') {
       return "display:inline";
     } else {
       return "display:none";
@@ -36,7 +41,7 @@ function NavbarController($scope, $location) {
   }
 
   $scope.logMeOut = function() {
-    $scope.userPath = '';
+    $localStorage.facebook = '';
     $location.path(`/sign_up`);
   }
 
