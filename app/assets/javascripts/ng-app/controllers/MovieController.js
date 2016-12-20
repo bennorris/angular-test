@@ -1,12 +1,12 @@
 function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFilms, GetReviews, $http) {
   var ctrl = this;
   $scope.searchTerm = '';
-  ctrl.data = [];
-  ctrl.films = []; //this array = list of films w id included
-  ctrl.reviews = [];
   var user = localStorage.getItem('facebook');
   $scope.userFacebook = user;
   $scope.searchMovies = '';
+  $scope.message = ["", "", ""]
+
+
 
  $scope.findFilm = function() {
    $scope.movieFail = "";
@@ -30,11 +30,11 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
 
   }
 
-  $scope.addToMovieList = function(film, img) {
+  $scope.addToMovieList = function(film, img, $index) {
     var vals = {facebook: $scope.userFacebook, artist: ctrl.director, content: film, medium: "film", img: img}
     $http.post('/users/' + $scope.userFacebook + '/list', vals)
     .then(function() {
-      $scope.moviePost = "Successfully added!"
+      $scope.message[$index] = "Successfully added!"
       })
     .catch(function() {
       $scope.moviePost =  "Sorry, it seems like there was a problem. Please try again later.";
