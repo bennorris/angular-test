@@ -1,54 +1,30 @@
-function MusicController(Album, $scope, $http) {
-  var ctrl = this;
-  $scope.listeners = [];
-  $scope.items = [];
-  $scope.full = [];
-  $scope.style = "none";
-  var open = false;
-  var user = localStorage.getItem('facebook');
-  $scope.userFacebook = user;
-  $scope.searchMusic = '';
+function MusicController(Album, $scope, $http, $localStorage) {
+  var user = $localStorage.facebook;
+  $scope.message = ["", "", ""]
 
-
-
-$scope.searchRecord = function () {
-  $scope.afterPost = '';
-  $scope.items = [];
-  Album
-    .getAlbum($scope.search)
-    .then(function(result) {
-      ctrl.data = result.data;
-      $scope.full = Album.getDetailedAlbum(result.data);
-      $scope.search = '';
-    })
-    .catch(function(error) {
-      $scope.musicFail = "Sorry, we couldn't find " + $scope.search + ". Please check your spelling and search again."
-      $scope.full = [];
-      $scope.search = '';
-    })
-}
-
-
-$scope.showDetails = function() {
-  if (open === false) {
-  $scope.style = "inline"
-  open = !open;
- }
-  else {
-    $scope.style = "none";
-    open = !open;
-  }
-}
-
-  $scope.addToList = function(name,record, img, index) {
-    var vals = {facebook: $scope.userFacebook, artist: name, content: record, medium: "music", img: img}
-    $http.post('/users/' + $scope.userFacebook + '/list', vals)
-    .then(function(index) {
-      console.log(index);
-      $scope.afterPost = "Successfully added!"
+  $scope.searchRecord = function () {
+    Album
+      .getAlbum($scope.search)
+      .then(function(result) {
+        $scope.full = Album.getDetailedAlbum(result.data);
+        $scope.search = '';
       })
-    .catch(function(index) {
-      $scope.afterPost =  "Sorry, it seems like there was a problem. Please try again later.";
+      .catch(function(error) {
+        $scope.musicFail = "Sorry, we couldn't find " + $scope.search + ". Please check your spelling and search again."
+        $scope.full = [];
+        $scope.search = '';
+      })
+    }
+
+
+  $scope.addToList = function(name,record, img, $index) {
+    var vals = {facebook: user, artist: name, content: record, medium: "music", img: img}
+    $http.post('/users/' + user + '/list', vals)
+    .then(function() {
+      $scope.message[$index] = "Successfully added!"
+      })
+    .catch(function() {
+      $scope.message[$index] =  "Sorry, it seems like there was a problem. Please try again later.";
     })
   }
 
