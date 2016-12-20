@@ -12,9 +12,9 @@
 
 
   <div class="records-to-remember">
+    <h2>{{ deleteMessage }}</h2>
     <input type="text" class="music-searchbox" placeholder="search through your list" ng-model="searchMusic"></input>
-    <ul ng-repeat="record in listData | filter:searchMusic">
-
+    <ul ng-repeat="record in listData | filter:searchMusic track by $index">
       <div class="record-img">
         <img src="{{record.img}}" alt="">
       </div>
