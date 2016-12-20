@@ -37,7 +37,7 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
       $scope.message[$index] = "Successfully added!"
       })
     .catch(function() {
-      $scope.moviePost =  "Sorry, it seems like there was a problem. Please try again later.";
+      $scope.message[$index] =  "Sorry, it seems like there was a problem. Please try again later.";
     })
   }
 

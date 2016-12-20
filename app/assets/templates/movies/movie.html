@@ -20,7 +20,7 @@
     <p>Original Title: {{movie.data.original_title}}</p>
   <button class="add-movie" ng-click="addToMovieList(movie.data.title, movie.data.poster_path, $index)">add to list</button>
     <h3>{{ moviePost }}</h3>
-    <h3>{{ message[$index] }}</h3>
+    <h3 id="after-post">{{ message[$index] }}</h3>
       </div>
 
   </div>
