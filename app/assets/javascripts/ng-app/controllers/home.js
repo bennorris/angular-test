@@ -1,9 +1,5 @@
-function HomeCtrl($scope) {
+function HomeCtrl() {
 
-  var user = localStorage.getItem('facebook');
-  $scope.userPath = user;
-
-  console.log($scope.userPath);
 }
 
 angular

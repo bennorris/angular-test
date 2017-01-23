@@ -1,8 +1,8 @@
-function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFilms, GetReviews, $http) {
+function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFilms, GetReviews, $http, $localStorage) {
   var ctrl = this;
   $scope.searchTerm = '';
-  var user = localStorage.getItem('facebook');
-  $scope.userFacebook = user;
+  var user = $localStorage.facebook;
+  // $scope.userFacebook = user;
   $scope.searchMovies = '';
   $scope.message = ["", "", ""]
 
@@ -31,8 +31,8 @@ function MovieController($scope, GetDirectorId, DirectorCredits, ListDirectorFil
   }
 
   $scope.addToMovieList = function(film, img, $index) {
-    var vals = {facebook: $scope.userFacebook, artist: ctrl.director, content: film, medium: "film", img: img}
-    $http.post('/users/' + $scope.userFacebook + '/list', vals)
+    var vals = {facebook: user, artist: ctrl.director, content: film, medium: "film", img: img}
+    $http.post('/users/' + user + '/list', vals)
     .then(function() {
       $scope.message[$index] = "Successfully added!"
       })

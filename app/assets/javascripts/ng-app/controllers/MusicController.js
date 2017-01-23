@@ -2,6 +2,7 @@ function MusicController(Album, $scope, $http, $localStorage) {
   var user = $localStorage.facebook;
   $scope.message = ["", "", ""]
 
+
   $scope.searchRecord = function () {
     Album
       .getAlbum($scope.search)
