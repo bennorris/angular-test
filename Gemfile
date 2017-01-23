@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-# gem 'sqlite3'
-gem 'pg'
+gem 'sqlite3'
 
 gem 'active_model_serializers'
 gem 'pry'

@@ -1,21 +1,26 @@
+
 {
-  "name": "Gubbinal",
-  "version": "0.0.0",
-  "private": false,
-  "author": "bennorris",
-  "devDependencies": {
-  },
-  "engines": {
-    "node": "5.1.0",
-    "npm": "3.4.1"
-  },
+  "name": "angular",
+  "version": "1.6.0",
+  "description": "HTML enhanced for web apps",
+  "main": "index.js",
   "scripts": {
-    "test": "grunt test",
-    "postinstall": "bower install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "bower": "1.7.1",
-    "express": "4.13.3"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular.js.git"
   },
-  "cacheDirectories": ["node_modules"]
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "client-side"
+  ],
+  "author": "Angular Core Team <angular-core+npm@google.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org"
 }
