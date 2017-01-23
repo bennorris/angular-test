@@ -4,7 +4,7 @@ Gubbinal lets you discover a director's top three films and a musician's top thr
 
 # A Note on Using Locally
 
-* You'll need to have API Keys for Facebook, Last.fm, and The Movie DB. Instructions. Instructions for adding them to a config.js file are under the Install Instructions below.
+* You'll need to have API Keys for Facebook, Last.fm, and The Movie DB. Instructions for adding them to a config.js file are under the Install Instructions below.
 * You can sign up for an account at The Movie DB here:  https://www.themoviedb.org/account/signup. After you've created and confirmed your account, you can log in and select 'API' from the left column and then 'Request an API Key'.
 * You can create an account at Last.fm here: http://www.last.fm/api/account/create
 * And finally, Facebook: https://developers.facebook.com/
